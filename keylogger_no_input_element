@@ -1,0 +1,27 @@
+const startLogger = (callback) => {
+  let wordArray = [];
+
+  // Listen for keydown events on the entire document
+  document.addEventListener("keydown", (event) => {
+    const key = event.key; // Get the key that was pressed
+
+    // Check if the key is a space or Enter
+    if (key === " " || key === "Enter") {
+      if (typeof callback === "function") {
+        callback(wordArray); // Call the callback with the current word array
+      }
+    } else {
+      // Add the key to the word array
+      wordArray.push(key);
+
+      if (typeof callback === "function") {
+        callback(wordArray); // Call the callback with the updated word array
+      }
+    }
+  });
+};
+
+// Usage
+startLogger((data) => {
+  console.log(data); // Log the array of keys pressed
+});
