@@ -1,0 +1,95 @@
+# JS Obfuscation & Deobfuscation
+
+### **What are Obfuscation & Deobfuscation?**
+
+### **Obfuscation**
+
+The process of modifying the script to convert it to a difficult, harder-to-understand format, but will return the same result. There are several obfuscation methods hence that there are many tools for it.
+
+### **Deobfuscation**
+
+It is the reverse process of obfuscation, as it rewrites the script again from a very difficult to read to an understandable one. This can be done with many tools.
+
+### **Why do we use Obfuscation?**
+
+There are many reasons why you may use obfuscation, here are some of them:
+
+- Prevent others from stealing their code
+- Avoid attackers understanding the script functionalities and abusing it.
+- Bypassing WAFs and security detection systems from filtering or detecting your payloads.
+
+## **Javascript Obfuscation**
+
+There are several methods in JS obfuscation
+
+### code minify
+
+by removing spaces, usually developers use this method as it reduces script file size.
+
+[https://www.toptal.com/developers/javascript-minifier](https://www.toptal.com/developers/javascript-minifier)
+
+[](https://lh5.googleusercontent.com/2CsfyMj1JFfKSGxJJFgDmcnNht587tWZ1JiR5ToRm9w-bJGvqNhj_8XeaFQm6RSUkQGWBoETdYwo8oYal7tODv1OZoOMiYN2lu4QSbGqOXhp9zNZq_QebIg6pj8a85mZZ6tBtma5QdTL-lUF6SGld5QGfe0YYElokSrmH1COR1VbWorN7U5TTRRVYA)
+
+### **JSF**
+
+By this method, you can rewrite any JS script with just **six characters []()!+**
+
+You can try it online from this [link](http://www.jsfuck.com/).
+
+[](https://lh6.googleusercontent.com/as_-4wHMlOb9naINxKxW3f75cNaLm3NI2AHxPEFpeXBX77Gq22Kb-fuWlDuXvZKnJ5QyqBwWjnu3hYO8s0A2umL5VI8TJV4wINUeEXTd7KdAqsDQceIsdrCMeM32DZK99gg0yxkCW-1m2jKIOWHkm7z0ufJXBWMKtkhOHVxKohAO9M_QI14BGLXvBw)
+
+### **Packer Obfuscation**
+
+- A `packer` obfuscation tool usually attempts to convert all words and symbols of the code into a **list** or a **dictionary** and then refer to them using the `(p,a,c,k,e,d)` function to re-build the original code during execution.
+- The `(p,a,c,k,e,d)` can be different from one packer to another. However, it usually contains a certain order in which the words and symbols of the original code were packed to know how to order them during execution.
+- While a packer does a great job reducing the code's readability, **we can still see its main strings written in cleartext**, which may reveal some of its functionality. This is why we may want to look for better ways to obfuscate our code.
+
+[https://www.cleancss.com/javascript-obfuscate/index.php](https://www.cleancss.com/javascript-obfuscate/index.php)
+
+[https://beautifytools.com/javascript-obfuscator.php](https://beautifytools.com/javascript-obfuscator.php)
+
+[https://aem1k.com/](https://aem1k.com/)
+
+[](https://lh3.googleusercontent.com/VTZCCnMYdQmiFASZrxwsLU_K-gaH_2TqRyDJs2axo1_9ua3Ga3bmn6l8n2QeU8k3RW-kDIYejRlQ4e616Xy4GOW0q8CXaw-eR_PEakpsYfyPbPVT8tvpyjQaMAJ4_Y-RYjrmv36trrbhpnOwvizBwCLm2gTA6Ymue7v0XzJrUTM6hg8x0mMST92Phw)
+
+### Advanced Tools:
+
+[https://obfuscator.io/](https://obfuscator.io/)
+
+[https://utf-8.jp/public/aaencode.html](https://utf-8.jp/public/aaencode.html)
+
+## **JS deobfuscation Tools**
+
+**Beautify**
+
+through our `Browser Dev Tools`.
+
+For example, if we were using **Firefox**, we can open the browser debugger with **[CTRL+SHIFT+Z]**, and then click on our script **secret.js**. This will show the script in its original formatting, but we can click on the '**{ }'** button at the bottom, which will Pretty Print the script into its proper JavaScript formatting:
+
+![](https://academy.hackthebox.com/storage/modules/41/js_deobf_pretty_print.jpg)
+
+- [JStillery](https://mindedsecurity.github.io/jstillery/)  → This tool performs **advanced** JS deobfuscation via partial evaluation.
+
+https://prettier.io/playground/
+
+https://beautifier.io/
+
+- [deobfuscate javascript](http://deobfuscatejavascript.com/)
+- **unpacker (Packer Obfuscation)** → [https://matthewfl.com/unPacker.html](https://matthewfl.com/unPacker.html)
+
+### **Hex Encode**
+
+To encode any string into `hex` in Linux, we can use the `xxd -p` command:
+
+```bash
+[!bash!]$ echo https://www.hackthebox.eu/ | xxd -p68747470733a2f2f7777772e6861636b746865626f782e65752f0a
+
+```
+
+### **Hex Decode**
+
+To decode a `hex` encoded string, we can use the `xxd -p -r` command:
+
+```bash
+[!bash!]$ echo 68747470733a2f2f7777772e6861636b746865626f782e65752f0a | xxd -p -rhttps://www.hackthebox.eu/
+```
